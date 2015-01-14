@@ -1,11 +1,12 @@
-
 ##Raspi Setup
 
-[SSH, telnet, HTTP](http://dcoj.wmh3.com/geekstuff/pisu/1.html)
+1. [Install OS](http://www.raspberrypi.org/help/noobs-setup/)
+2. [Setup Camera](http://www.raspberrypi.org/documentation/usage/camera/README.md)
+3. Watermarks
+4. Emailing
+5. RFID Reader
 
 ##Camera
-
-[Setup](http://www.raspberrypi.org/documentation/usage/camera/README.md)
 
 [Raspistill bash](http://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md)
 
@@ -24,8 +25,8 @@ sudo apt-get update
 sudo apt-get install mutt
 ```
 
-####TwitterBot
-[Instructable](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
+####Method #3
+[Twitterbot](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
 
 ##Watermarking
 
