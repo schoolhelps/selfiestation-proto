@@ -14,7 +14,15 @@
 
 ##Emailing
 
-[From Command Line](http://ozzmaker.com/2012/12/03/send-email-from-the-raspberry-pi-or-linux-command-line-with-attachments/)
+####Method #1
+[mpack & SSMTP](http://ozzmaker.com/2012/12/03/send-email-from-the-raspberry-pi-or-linux-command-line-with-attachments/)
+
+####Method #2
+[Mutt](http://www.maclife.com/article/columns/terminal_101_using_mutt_email_client) (OS X) 
+```
+sudo apt-get update
+sudo apt-get install mutt
+```
 
 ####TwitterBot
 [Instructable](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
