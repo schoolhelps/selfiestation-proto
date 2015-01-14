@@ -4,14 +4,16 @@
 2. [Setup Camera](http://www.raspberrypi.org/documentation/usage/camera/README.md)
 3. Watermarks
 4. Emailing
-5. RFID Reader
+5. Setup RFID Reader
+6. Script it all together
+
+[Parts](https://docs.google.com/document/d/1Aqv9FwogubRNbwb0DYq8632tRPEbR4dWg0ym3a4JpQk/edit?usp=sharing)
 
 ##Camera
 
 [Raspistill bash](http://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md)
 
 [Timelapse](http://www.raspberrypi.org/documentation/usage/camera/raspicam/timelapse.md) if we want to do one.
-
 
 ##Emailing
 
@@ -50,5 +52,3 @@ atop			# makes image ‘over’ and keeps original size
 ```
 
 (From [here](http://www.xoogu.com/2013/how-to-automatically-watermark-or-batch-watermark-photos-using-imagemagick/). Includes a bash script to do something similar.)
-
-
