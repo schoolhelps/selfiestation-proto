@@ -15,6 +15,11 @@
 
 [Timelapse](http://www.raspberrypi.org/documentation/usage/camera/raspicam/timelapse.md) if we want to do one.
 
+For prototyping on the Mac [Imagesnap](http://osxdaily.com/2007/01/24/capture-isight-images-using-the-command-line/) 
+```
+brew install imagesnap
+```
+
 ##Emailing
 
 ####Method #1
