@@ -35,17 +35,31 @@ sudo apt-get install mutt
 ####Method #3
 [Twitterbot](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
 
-##Watermarking
+##Watermark, Resize, and Crop
 
 ####Imagemagick
-
+---
 (Linux) Install:
 ```
 sudo apt-get update
 sudo apt-get install imagemagick --fix-missing
 ```
+---
+Resize
+```
+convert original.jpg -resize 900 resized.jpg
+```
+---
 
-Watermark a small image
+Crop
+```
+convert original.jg -crop 640x640+130+20 cropped.jpg
+                                  ^X, Y offset
+```
+
+---
+
+Watermark
 ```	
 composite -compose atop -geometry +75 -gravity southeast ./watermark.png ./photo.jpg ./photo-watermarked.jpg
 ```
