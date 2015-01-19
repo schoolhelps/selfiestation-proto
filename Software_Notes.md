@@ -4,7 +4,7 @@
 2. [Setup Camera](http://www.raspberrypi.org/documentation/usage/camera/README.md)
 3. Watermarks
 4. Emailing
-5. Setup RFID Reader
+5. [Setup RFID Reader](https://www.sparkfun.com/tutorials/243) ([Drivers](http://www.ftdichip.com/FTDrivers.htm))
 6. Script it all together
 
 [Parts](https://docs.google.com/document/d/1Aqv9FwogubRNbwb0DYq8632tRPEbR4dWg0ym3a4JpQk/edit?usp=sharing)
