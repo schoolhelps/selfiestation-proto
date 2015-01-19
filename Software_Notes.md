@@ -9,6 +9,8 @@
 
 [Parts](https://docs.google.com/document/d/1Aqv9FwogubRNbwb0DYq8632tRPEbR4dWg0ym3a4JpQk/edit?usp=sharing)
 
+[MySQL Hosting](http://www.freemysqlhosting.net/)
+
 ##Camera
 
 [Raspistill bash](http://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md)
