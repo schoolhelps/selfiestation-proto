@@ -27,14 +27,21 @@ brew install imagesnap
 ####Method #1
 [mpack & SSMTP](http://ozzmaker.com/2012/12/03/send-email-from-the-raspberry-pi-or-linux-command-line-with-attachments/)
 
-####Method #2
+####Method #2 (Allows for multiple attachments)
+[mailx](http://www.fclose.com/5167/sending-email-using-mailx-in-linux-through-internal-smtp/)
+
+```
+(uuencode $FILE1 $FILE1; uuencode $FILE2 $FILE2; uuencode $FILE3 $FILE3)|mailx -s"Sending Three Attachments" $EMAIL
+```
+
+####Method #3
 [Mutt](http://www.maclife.com/article/columns/terminal_101_using_mutt_email_client) (OS X) 
 ```
 sudo apt-get update
 sudo apt-get install mutt
 ```
 
-####Method #3
+####Method #4
 [Twitterbot](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
 
 ##Watermark, Resize, and Crop
