@@ -11,6 +11,15 @@
 
 [MySQL Hosting](http://www.freemysqlhosting.net/)
 
+##Software
+
+1. Python script checking for RFID read
+2. (Event) RFID Scanned
+3. Python saves RFID number, does a look up for the user
+4. Bash Script takes photo(s) and watermarks.
+5. Python Emails photo(s).
+6. Python returns to waiting for RFID read.
+
 ##Camera
 
 [Raspistill bash](http://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md)
