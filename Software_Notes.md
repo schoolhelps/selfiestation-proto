@@ -4,12 +4,10 @@
 2. [Setup Camera](http://www.raspberrypi.org/documentation/usage/camera/README.md)
 3. Watermarks
 4. Emailing
-5. [Setup RFID Reader](https://www.sparkfun.com/tutorials/243) ([Drivers](http://www.ftdichip.com/FTDrivers.htm))
+5. Setup RFID Reader
 6. Script it all together
 
 [Parts](https://docs.google.com/document/d/1Aqv9FwogubRNbwb0DYq8632tRPEbR4dWg0ym3a4JpQk/edit?usp=sharing)
-
-[MySQL Hosting](http://www.freemysqlhosting.net/)
 
 ##Software
 
@@ -26,32 +24,13 @@
 
 [Timelapse](http://www.raspberrypi.org/documentation/usage/camera/raspicam/timelapse.md) if we want to do one.
 
-For prototyping on the Mac [Imagesnap](http://osxdaily.com/2007/01/24/capture-isight-images-using-the-command-line/) 
-```
-brew install imagesnap
-```
-
 ##Emailing
 
-####Method #1
-[mpack & SSMTP](http://ozzmaker.com/2012/12/03/send-email-from-the-raspberry-pi-or-linux-command-line-with-attachments/)
+[SSMTP](http://ozzmaker.com/2012/12/03/send-email-from-the-raspberry-pi-or-linux-command-line-with-attachments/)
 
-####Method #2 (Allows for multiple attachments)
-[mailx](http://www.fclose.com/5167/sending-email-using-mailx-in-linux-through-internal-smtp/)
+##RFID Reader
 
-```
-(uuencode $FILE1 $FILE1; uuencode $FILE2 $FILE2; uuencode $FILE3 $FILE3)|mailx -s"Sending Three Attachments" $EMAIL
-```
-
-####Method #3
-[Mutt](http://www.maclife.com/article/columns/terminal_101_using_mutt_email_client) (OS X) 
-```
-sudo apt-get update
-sudo apt-get install mutt
-```
-
-####Method #4
-[Twitterbot](http://www.instructables.com/id/Raspberry-Pi-Twitterbot/?ALLSTEPS)
+[ucasts module](https://github.com/sidwarkd/ucasts_pi)
 
 ##Watermark, Resize, and Crop
 
