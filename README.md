@@ -4,8 +4,7 @@
 
 * [Raspberry Pi Model B+](https://www.sparkfun.com/products/12994)
 * [Raspberry Pi Camera Module](https://www.sparkfun.com/products/11868)
-* [Innovations ID-20LA RFID Reader](https://www.sparkfun.com/products/11828)(and [Jumper Wires](https://www.sparkfun.com/products/11710))
-* []()
+* [Innovations ID-20LA RFID Reader](https://www.sparkfun.com/products/11828) (and [Jumper Wires](https://www.sparkfun.com/products/11710))
 
 ##Codebase
 
@@ -42,7 +41,7 @@ The only connections needed were Power, Ground, Data Transfer, and Format Select
 Since these photos aren't the best here are the connections with the labels from the provided links.
 
 | **Raspberry Pi Pins**    | **RFID Pins**         |
-|-------------------------:|-----------------------|
+|-------------------------:|:----------------------|
 | (3V3 Power) 1            | 11 (+2.8V thru +5.0V) |
 | (Ground) 9               | 1 (GND)               |
 | (Ground) 6               | 7 (Format Selector)   |
