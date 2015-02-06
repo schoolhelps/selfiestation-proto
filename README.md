@@ -8,12 +8,14 @@
 
 ##Codebase
 
-There's four core components to making the Selfie Station work codewise: 
+There's four core components of the Selfie Staiton: 
 
 * The Camera
 * The RFID Reader
 * Emailing 
 * Watermarking
+
+Aside from those core parts, we used the standard Raspbian Debian Wheezy distrobution on the Raspberry Pi. The script is being ran on startup by running it on startup by adding 'python /home/pi/src/allPython.py' to the '/etc/rc.local' file.
 
 ###The Camera
 
@@ -50,13 +52,11 @@ Since these photos aren't the best here are the connections with the labels from
 
 ###Emailing
 
-For emailing on the Raspberry Pi we went with a fairly basic SMTP method. In order to do multiple attachments and recepients we had to use some of the the built in `email.mime` functions that Python provides. Specifically, the Image, Text, and Multipart libraries.
+For emailing on the Raspberry Pi we went with a fairly basic SMTP method. In order to do multiple attachments and recepients we had to use some of the the built in `email.mime` functions in Python's standard library, specifically the Image, Text, and Multipart libraries.
 
 ###Watermarking
 
 We went with [ImageMagick](http://www.imagemagick.org/) to add a watermark to our photo. It's being done through a simple bash script using Imagemagick's CLI.
-
-
 
 
 
