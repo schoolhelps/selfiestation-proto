@@ -1,6 +1,7 @@
 import smtplib
 import picamera
 import subprocess
+import datetime
 from ucasts import ID12LA
 from time import sleep
 from email.mime.text import MIMEText
@@ -32,6 +33,8 @@ def send_mail(send_from, send_pass, send_to, subject, files):
 		fp = open(f, 'rb')
 		img = MIMEImage(fp.read())
 		fp.close()
+		name = "Selfie from " + datetime.datetime.now().strftime("%H:%M %b %d, %Y")
+		img.add_header('Content-Disposition', 'attachment', filename=name)
 		msg.attach(img)
 
 	print "Email sending."
