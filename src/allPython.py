@@ -63,8 +63,7 @@ class Card:
 
 	def cardInstructions(self):
 		self.files.extend(take_multiple_pictures(self.picNum, self.picHeight, self.picWidth))
-		for x in range(0, self.vidNum):
-			self.files.extend(take_video(self.vidHeight, self.vidWidth, self.vidLength))
+		self.files.extend(take_multiple_videos(self.vidNum, self.vidHeight, self.vidWidth, self.vidLength))
 
 	def cardLookup(self):
 		if(self.getID()[-1:] == '3'):
@@ -198,6 +197,12 @@ def take_multiple_pictures(count,h,w):
 		files.extend(take_single_picture(h,w))
 	return files
 
+def take_multiple_videos(vidNum, vidHeight, vidWidth, vidLength):
+	files = []
+	for x in range(0, vidNum):
+		files.extend(take_video(vidHeight, vidWidth, vidLength))
+	return files
+
 ##########################################################
 #Misc. Section
 ##########################################################
@@ -208,9 +213,15 @@ def get_file_timestamp():
 	return datetime.datetime.now().strftime("%H%M%b%d%Y%f")
 
 def remove_local_files():
-	subprocess.call("rm -f picameraPic*",shell=True)
-	subprocess.call("rm -f watermark*",shell=True)
-	subprocess.call("rm -f piVideo*",shell=True)
+	filelist = [ f for f in os.listdir(".") if f.startswith("picameraPic*") ]
+	for f in filelist:
+    	os.remove(f)
+   	filelist = [ f for f in os.listdir(".") if f.startswith("watermark*") ]
+	for f in filelist:
+    	os.remove(f)
+    filelist = [ f for f in os.listdir(".") if f.startswith("piVideo*") ]
+	for f in filelist:
+    	os.remove(f)
 
 ##########################################################
 #Most important section
