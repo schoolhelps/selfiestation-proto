@@ -3,6 +3,7 @@ import picamera
 import subprocess
 import datetime
 import os
+import sys
 import logging
 import credentials
 from ucasts import ID12LA
