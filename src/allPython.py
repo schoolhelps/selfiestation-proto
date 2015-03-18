@@ -17,9 +17,12 @@ from twython import Twython
 
 path = os.getcwd() 
 fun = False
+if(len(sys.argv) > 1) and (sys.argv[1] == "fun"):
+	fun = True
 
-###############################################################
+##########################################################
 #The card controls how many pictures and videos are taken, as well as the picture and video properties
+##########################################################
 class Card:
 	def __init__(self,cardIDinput):
 		self.cardID = cardIDinput
@@ -70,6 +73,7 @@ class Card:
 
 ##########################################################
 #Email and Twitter Section
+##########################################################
 def send_mail(send_from, send_pass, send_to, subject, files, bodyText):
 
 	to = send_to
@@ -133,7 +137,7 @@ def multiple_tweets(files,text):
 
 ##########################################################
 #Camera and Watermarking Section
-
+##########################################################
 def take_picture(width, height):
 	camera = picamera.PiCamera()
 	camera.resolution = (width, height)
@@ -189,7 +193,7 @@ def take_multiple_pictures(count,h,w):
 
 ##########################################################
 #Misc. Section
-
+##########################################################
 def get_timestamp():
 	return datetime.datetime.now().strftime("%H:%M %b %d, %Y")
 
@@ -203,7 +207,7 @@ def remove_local_files():
 
 ##########################################################
 #Most important section
-
+##########################################################
 def funky_dance_party():
 	camera = picamera.PiCamera()
 	camera.led = False
@@ -228,7 +232,7 @@ def funky_dance_party_lights(camera):
 
 ##########################################################
 #Driver Section
-
+##########################################################
 logging.basicConfig(filename=path+'/errorLog.log',level=logging.DEBUG)
 logging.info("Process starting at " + get_timestamp() )
 
