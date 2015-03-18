@@ -54,6 +54,10 @@ Since these photos aren't the best here are the connections with the labels from
 
 For emailing on the Raspberry Pi we went with a fairly basic SMTP method. In order to do multiple attachments and recepients we had to use some of the the built in `email.mime` functions in Python's standard library, specifically the Image, Text, and Multipart libraries.
 
+###Tweeting
+
+To send out our tweets we used this [guide](http://www.makeuseof.com/tag/how-to-build-a-raspberry-pi-twitter-bot/) that uses the [Twython](https://github.com/ryanmcgrath/twython) API.
+
 ###Watermarking
 
 We went with [ImageMagick](http://www.imagemagick.org/) to add a watermark to our photo. It's being done through a simple bash script using Imagemagick's CLI.
