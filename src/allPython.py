@@ -18,6 +18,8 @@ from twython import Twython
 path = os.getcwd() 
 fun = False
 
+###############################################################
+#The card controls how many pictures and videos are taken, as well as the picture and video properties
 class Card:
 	def __init__(self,cardIDinput):
 		self.cardID = cardIDinput
@@ -66,6 +68,8 @@ class Card:
 			self.setVidNum(1)
 			self.setPicNum(0)
 
+##########################################################
+#Email and Twitter Section
 def send_mail(send_from, send_pass, send_to, subject, files, bodyText):
 
 	to = send_to
@@ -109,6 +113,7 @@ def send_mail(send_from, send_pass, send_to, subject, files, bodyText):
 	s.close()
 
 def tweet_photo(filePhoto, text):
+	logging.info(get_timestamp() + "Tweeting: " + filePhoto)
 	CONSUMER_KEY = credentials.getConsumerKey()
 	CONSUMER_SECRET = credentials.getConsumerSecret()
 	ACCESS_KEY = credentials.getAccessKey()
@@ -122,8 +127,12 @@ def tweet_photo(filePhoto, text):
 	api.update_status(media_ids=[media_status['media_id']], status=tweet_txt)
 
 def multiple_tweets(files,text):
+	logging.info(get_timestamp() + "Tweeting Multiple Photos.")
 	for i in files:
 		tweet_photo(i,text)
+
+##########################################################
+#Camera and Watermarking Section
 
 def take_picture(width, height):
 	camera = picamera.PiCamera()
@@ -133,9 +142,9 @@ def take_picture(width, height):
 	camera.start_preview()
 	blink(camera,4,.15)
 	camera.capture(pictureName)
-	logging.info(get_timestamp() + "Picture captured: "+pictureName)
 	camera.stop_preview()
 	camera.close()
+	logging.info(get_timestamp() + "Picture captured: "+pictureName)
 
 	return pictureName
 
@@ -178,6 +187,9 @@ def take_multiple_pictures(count,h,w):
 		files.extend(take_single_picture(h,w))
 	return files
 
+##########################################################
+#Misc. Section
+
 def get_timestamp():
 	return datetime.datetime.now().strftime("%H:%M %b %d, %Y")
 
@@ -188,8 +200,10 @@ def remove_local_files():
 	subprocess.call("rm -f picameraPic*",shell=True)
 	subprocess.call("rm -f watermark*",shell=True)
 	subprocess.call("rm -f piVideo*",shell=True)
-	
-#Most important part
+
+##########################################################
+#Most important section
+
 def funky_dance_party():
 	camera = picamera.PiCamera()
 	camera.led = False
@@ -212,9 +226,11 @@ def funky_dance_party_lights(camera):
 		blink(camera,11,.025*i)
 	blink(camera,1,.8)	
 
+##########################################################
+#Driver Section
 
 logging.basicConfig(filename=path+'/errorLog.log',level=logging.DEBUG)
-logging.info("Logging Started at " + get_timestamp() )
+logging.info("Process starting at " + get_timestamp() )
 
 reader = ID12LA() #RFID Reader
 
@@ -234,8 +250,6 @@ while(not fun):
 		currentCard = Card(tag)
 		currentCard.cardInstructions()
 		files = currentCard.getFiles()
-
-		logging.info(get_timestamp() + "Sending selfie.")
 		
 		multiple_tweets(files, "Selfie(s) from " + get_timestamp())
 
@@ -243,6 +257,7 @@ while(not fun):
 		text = "Here's your selfie(s), " + tag
 		send_to.append(currentCard.email)
 		print "Emailing ", send_to, " selfie."
+		logging.info(get_timestamp() + "Emailing selfie to: " + send_to)
 		send_mail(selfieStationEmail, selfieStationPass, send_to, subject, files,text)
 
 		send_to = ['selfie.station.pi@gmail.com']	
