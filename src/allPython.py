@@ -216,13 +216,13 @@ def get_file_timestamp():
 def remove_local_files():
 	filelist = [ f for f in os.listdir(".") if f.startswith("picameraPic*") ]
 	for f in filelist:
-    	os.remove(f)
-   	filelist = [ f for f in os.listdir(".") if f.startswith("watermark*") ]
+		os.remove(f)
+	filelist = [ f for f in os.listdir(".") if f.startswith("watermark*") ]
 	for f in filelist:
-    	os.remove(f)
-    filelist = [ f for f in os.listdir(".") if f.startswith("piVideo*") ]
+		os.remove(f)
+	filelist = [ f for f in os.listdir(".") if f.startswith("piVideo*") ]
 	for f in filelist:
-    	os.remove(f)
+		os.remove(f)
 
 ##########################################################
 #Most important section
