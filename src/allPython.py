@@ -133,7 +133,14 @@ def tweet_photo(filePhoto, text):
 def multiple_tweets(files,text):
 	logging.info(get_timestamp() + "Tweeting Multiple Photos.")
 	for i in files:
-		tweet_photo(i,text)
+		if(check_file_for_tweet()):
+			tweet_photo(i,text)
+
+def check_file_for_tweet(file):
+	if(file[-1:] == '4'):
+		return False
+	else:
+		return True
 
 ##########################################################
 #Camera and Watermarking Section
