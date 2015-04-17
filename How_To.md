@@ -36,7 +36,7 @@ Then connect to the Raspberry Pi, and edit the sourceWatermark.txt file to read 
 ```
 New_Watermark.png
 ```
-
+Note: This will default to a few pixels to the right of the the top left corner, it can be changed in the code or by using a transparent png the size of the photo (1000px by 1000px) with the watermark in it's proper spot.
 ####Rebooting the Raspberry Pi
 In the command line:
 ```
