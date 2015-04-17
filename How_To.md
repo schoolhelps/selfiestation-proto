@@ -27,10 +27,11 @@ newemail@gmail.com
 ```
 
 ####Changing the watermark file
-Move the desired png file to your desktop. Open a new terminal window and do the following command with \<Your Name> replaced with your name, and the first New_Watermark.png with the filname of the watermark photo:
+Move the desired png file to your desktop. Open a new terminal window and do the following command with \<Your Name> replaced with your computer's user name (use the `pwd` command to check what that is if you're unsure), and the first New_Watermark.png with the filname of the watermark photo:
 ```
 scp /Users/<Your Name>/Desktop/New_Watermark.png pi@:/home/pi/src/New_Watermark.png
 ```
+You should be prompted for a password, it's also `raspberry`.
 Then connect to the Raspberry Pi, and edit the sourceWatermark.txt file to read (replace the current line):
 ```
 New_Watermark.png
