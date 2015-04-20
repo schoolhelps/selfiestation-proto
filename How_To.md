@@ -3,7 +3,7 @@ In the command line:
 ```
 ssh pi@
 ```
-When it prompts it should ask for a password, it is `raspberry`
+When it prompts it should ask for a password it is `raspberry`
 
 ####Editing run time files from command line
 
@@ -13,6 +13,8 @@ cd src
 vim file.txt
 ```
 Move the cursor with the arrow keys. Press `i` to toggle editing on. Press `esc` to toggle editing off. To save and quit press `:wq` followed by `enter`. To quit without saving press `:q!` followed by `enter`.
+
+After editting a file, reboot the device to restart the script.
 
 ####Adding an email
 Just add a new line to the 'emailList.txt' file with the email. Example:
@@ -36,9 +38,10 @@ Then connect to the Raspberry Pi, and edit the sourceWatermark.txt file to read 
 ```
 New_Watermark.png
 ```
-Note: This will default to a few pixels to the right of the the top left corner, it can be changed in the code or by using a transparent png the size of the photo (1000px by 1000px) with the watermark in it's proper spot.
+Note: This will default to a few pixels to the right of the the top left corner, it can be changed in the code or by using a transparent png the size of the photo (1000 x 1000px) with the watermark in it's proper spot.
 ####Rebooting the Raspberry Pi
 In the command line:
 ```
 sudo reboot
 ```
+If it prompts for a password it's `raspberry`.
