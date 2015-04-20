@@ -42,3 +42,4 @@ In the command line:
 ```
 sudo reboot
 ```
+If it prompts for a password, it's `raspberry`.
