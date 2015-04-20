@@ -184,7 +184,7 @@ def take_video(h,w,l):
 	videoFile = path+'/piVideo'+get_file_timestamp()+'.h264'
 	logging.info(get_timestamp() + "Recording video: "+videoFile)
 	with picamera.PiCamera() as camera:
-		blink(camera, 10, .05)
+		blink(camera, 4, .35)
 		camera.resolution = (h,w)
 		camera.start_recording(videoFile)
 		camera.wait_recording(l)
@@ -263,8 +263,8 @@ files = []
 while(not fun):
 	logging.info(get_timestamp() + "Ready for new scan.")
 	print "Awaiting scan"
-	#tag = reader.wait_for_scan()
-	tag = str(4)
+	tag = reader.wait_for_scan()
+	#tag = str(4)
 	if tag != None:
 		logging.info(get_timestamp() + "Tag found: "+tag)
 		print "Card", tag, "found, initializing selfie protocol."
