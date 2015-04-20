@@ -14,6 +14,8 @@ vim file.txt
 ```
 Move the cursor with the arrow keys. Press `i` to toggle editing on. Press `esc` to toggle editing off. To save and quit press `:wq` followed by `enter`. To quit without saving press `:q!` followed by `enter`.
 
+After editting a file, reboot the device to restart the script.
+
 ####Adding an email
 Just add a new line to the 'emailList.txt' file with the email. Example:
 
