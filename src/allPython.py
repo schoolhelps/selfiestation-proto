@@ -21,6 +21,9 @@ fun = False
 if(len(sys.argv) > 1) and (sys.argv[1] == "fun"):
 	fun = True
 
+with open ("sourceWatermark.txt","r") as f:
+	watermarkPhotoFile = f.readline()
+watermarkPhotoFile = watermarkPhotoFile[:-1]
 ##########################################################
 #The card controls how many pictures and videos are taken, as well as the picture and video properties
 ##########################################################
@@ -35,7 +38,7 @@ class Card:
 		self.picNum = 1
 		self.vidNum = 0
 		self.files = []
-		self.email = 'selfie.station.pi@gmail.com'
+		self.email = ['selfie.station.pi@gmail.com']
 		self.cardLookup()
 	
 	def setPicHW(self, h, w):
@@ -64,12 +67,19 @@ class Card:
 
 	def cardInstructions(self):
 		self.files.extend(take_multiple_pictures(self.picNum, self.picHeight, self.picWidth))
-		self.files.extend(take_multiple_videos(self.vidNum, self.vidHeight, self.vidWidth, self.vidLength))
+		for x in range(0, self.vidNum):
+			self.files.extend(take_video(self.vidHeight, self.vidWidth, self.vidLength))
 
 	def cardLookup(self):
+		self.loadEmailsFromFile()
 		if(self.getID()[-1:] == '3'):
 			self.setVidNum(1)
 			self.setPicNum(0)
+	
+	def loadEmailsFromFile(self):
+		with open ("emailList.txt","r") as f:
+			for line in f:
+				self.email.append(str(line[:-1]))
 
 ##########################################################
 #Email and Twitter Section
@@ -133,7 +143,7 @@ def tweet_photo(filePhoto, text):
 def multiple_tweets(files,text):
 	logging.info(get_timestamp() + "Tweeting Multiple Photos.")
 	for i in files:
-		if(check_file_for_tweet()):
+		if(check_file_for_tweet(i)):
 			tweet_photo(i,text)
 
 def check_file_for_tweet(file):
@@ -160,7 +170,7 @@ def take_picture(width, height):
 	return pictureName
 
 def watermark_picture(picameraPic):
-	watermarkPhoto = path+ '/School_Watermark.png'
+	watermarkPhoto = path +'/'+ watermarkPhotoFile
 	photo = picameraPic
 	result = path+'/watermark'+get_file_timestamp()+'.jpg'
 	watermarkCall = path+"/addWatermark.sh " + watermarkPhoto + " " + photo + " " + result
@@ -198,12 +208,6 @@ def take_multiple_pictures(count,h,w):
 		files.extend(take_single_picture(h,w))
 	return files
 
-def take_multiple_videos(vidNum, vidHeight, vidWidth, vidLength):
-	files = []
-	for x in range(0, vidNum):
-		files.extend(take_video(vidHeight, vidWidth, vidLength))
-	return files
-
 ##########################################################
 #Misc. Section
 ##########################################################
@@ -214,15 +218,9 @@ def get_file_timestamp():
 	return datetime.datetime.now().strftime("%H%M%b%d%Y%f")
 
 def remove_local_files():
-	filelist = [ f for f in os.listdir(".") if f.startswith("picameraPic*") ]
-	for f in filelist:
-		os.remove(f)
-	filelist = [ f for f in os.listdir(".") if f.startswith("watermark*") ]
-	for f in filelist:
-		os.remove(f)
-	filelist = [ f for f in os.listdir(".") if f.startswith("piVideo*") ]
-	for f in filelist:
-		os.remove(f)
+	subprocess.call("rm -f picameraPic*",shell=True)
+	subprocess.call("rm -f watermark*",shell=True)
+	subprocess.call("rm -f piVideo*",shell=True)
 
 ##########################################################
 #Most important section
@@ -265,7 +263,8 @@ files = []
 while(not fun):
 	logging.info(get_timestamp() + "Ready for new scan.")
 	print "Awaiting scan"
-	tag = reader.wait_for_scan()
+	#tag = reader.wait_for_scan()
+	tag = str(4)
 	if tag != None:
 		logging.info(get_timestamp() + "Tag found: "+tag)
 		print "Card", tag, "found, initializing selfie protocol."
@@ -278,9 +277,9 @@ while(not fun):
 
 		subject = "Selfie(s) from " + get_timestamp()
 		text = "Here's your selfie(s), " + tag
-		send_to.append(currentCard.email)
+		send_to.extend(currentCard.email)
 		print "Emailing ", send_to, " selfie."
-		logging.info(get_timestamp() + "Emailing selfie to: " + send_to)
+		logging.info(get_timestamp() + "Emailing selfie to: ", send_to)
 		send_mail(selfieStationEmail, selfieStationPass, send_to, subject, files,text)
 
 		send_to = ['selfie.station.pi@gmail.com']	
