@@ -3,7 +3,7 @@ In the command line:
 ```
 ssh pi@
 ```
-When it prompts it should ask for a password, it is `raspberry`
+When it prompts it should ask for a password it is `raspberry`
 
 ####Editing run time files from command line
 
