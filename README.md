@@ -1,5 +1,5 @@
 #School Selfie Station Prototype
-![Selfie Selfie](/images/selfieSelfie.jpg)
+![Selfie Selfie](/images/selfieSelfie.png)
 ##Parts Used
 
 * [Raspberry Pi Model B+](https://www.sparkfun.com/products/12994)
