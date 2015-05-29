@@ -1,4 +1,7 @@
 #School Selfie Station Prototype
+
+The Selfie Station is meant to be an alternative to the headhunters you find on the top of ski resorts taking your picture. Instead of dealing with a person people could go up to a machine, swipe their phone or ski pass, get their picture taken and have it emailed and tweeted right to them.
+
 ![Selfie Selfie](/images/selfieSelfie.png)
 ##Parts Used
 
